@@ -6,10 +6,13 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:12:29 by bokim             #+#    #+#             */
-/*   Updated: 2021/11/29 17:12:44 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/03 18:53:40 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void){
-	
+#include <unistd.h>
+#include <signal.h>
+
+int main(void)
+{
 }

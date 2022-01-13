@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:12:29 by bokim             #+#    #+#             */
-/*   Updated: 2022/01/13 19:34:52 by bokim            ###   ########.fr       */
+/*   Updated: 2022/01/13 19:58:38 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ int	main(void)
 {
 	struct sigaction	act;
 
-	ft_putstr_fd("SERVER PID : ", 1);
-	ft_putnbr_fd(getpid(), 1);
-	ft_putstr_fd("\n====================\n", 1);
+	ft_printf("SERVER PID : %d\n====================\n", getpid());
 	act.sa_flags = SA_SIGINFO;
 	act.sa_sigaction = &handler;
 	sigemptyset(&act.sa_mask);

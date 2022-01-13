@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:43:55 by bokim             #+#    #+#             */
-/*   Updated: 2022/01/05 17:01:35 by bokim            ###   ########.fr       */
+/*   Updated: 2022/01/13 19:36:48 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "../ft_printf/ft_printf.h"
 
 #endif

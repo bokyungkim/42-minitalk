@@ -3,18 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:12:29 by bokim             #+#    #+#             */
-/*   Updated: 2022/01/05 17:19:17 by bokim            ###   ########.fr       */
+/*   Updated: 2022/01/13 19:36:28 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include "minitalk_bonus.h"
 
-int main(void)
+void	handler(int signo, siginfo_t *siginfo, void *unused)
 {
-	write(1, "hi", 2);
+	static unsigned char	msg = 0;
+	static int				digit = 0;
+
+	unused = 0;
+	siginfo = 0;
+	if (signo == SIGUSR1)
+		msg |= (1 << digit);
+	digit++;
+	if (digit == 8)
+	{
+		ft_printf("%c", msg);
+		digit = 0;
+		msg = 0;
+	}
+}
+
+int	main(void)
+{
+	struct sigaction	act;
+
+	ft_putstr_fd("SERVER PID : ", 1);
+	ft_putnbr_fd(getpid(), 1);
+	ft_putstr_fd("\n====================\n", 1);
+	act.sa_flags = SA_SIGINFO;
+	act.sa_sigaction = &handler;
+	sigemptyset(&act.sa_mask);
+	sigaddset(&act.sa_mask, SIGUSR1);
+	sigaddset(&act.sa_mask, SIGUSR2);
+	if (sigaction(SIGUSR1, &act, NULL) == -1)
+	{
+		ft_putstr_fd("Sigaction Error\n", 2);
+		exit(1);
+	}
+	if (sigaction(SIGUSR2, &act, NULL) == -1)
+	{
+		ft_putstr_fd("Sigaction Error\n", 2);
+		exit(1);
+	}
+	while (1)
+		pause();
 	return (0);
 }

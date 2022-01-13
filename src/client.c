@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:12:31 by bokim             #+#    #+#             */
-/*   Updated: 2022/01/13 19:20:45 by bokim            ###   ########.fr       */
+/*   Updated: 2022/01/13 19:34:34 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	get_server_pid(int argc, char *argv[])
 {
-	int s_pid;
-	
+	int	s_pid;
+
 	if (argc != 3)
 	{
 		ft_putstr_fd("Wrong arguments : [1]filename [2]pid [3]message\n", 2);
@@ -51,7 +51,7 @@ void	send_signal(int	s_pid, int byte)
 			if (kill(s_pid, SIGUSR2) == -1)
 			{
 				ft_putstr_fd("Signal Error : from Client\n", 2);
-				exit(1);	
+				exit(1);
 			}
 		}
 		digit++;

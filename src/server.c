@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:12:29 by bokim             #+#    #+#             */
-/*   Updated: 2022/01/13 19:18:10 by bokim            ###   ########.fr       */
+/*   Updated: 2022/01/13 19:34:52 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	handler(int signo, siginfo_t *siginfo, void *unused)
 
 int	main(void)
 {
-	struct sigaction act;
+	struct sigaction	act;
 
 	ft_putstr_fd("SERVER PID : ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putstr_fd("\n====================\n", 1);
-	act.sa_flags = SA_SIGINFO; //sigaction을 사용하겠다.
+	act.sa_flags = SA_SIGINFO;
 	act.sa_sigaction = &handler;
 	sigemptyset(&act.sa_mask);
 	sigaddset(&act.sa_mask, SIGUSR1);
